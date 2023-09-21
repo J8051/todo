@@ -1,13 +1,13 @@
-import { Client } from 'pg'
+const { Pool } = require('pg')
  
-const db = new Client({
+const db = new Pool({
   user: 'dbuser',
   host: 'localhost',
   database: 'todo',
   password: 'todo',
-  port: 5000,
+  port: 5432,
 })
  
-await db.connect()
+db.connect()
  
 module.exports = db; 
