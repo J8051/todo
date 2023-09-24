@@ -1,11 +1,28 @@
 import "../todo.css"
-function Todo({ item }) {
+import axios from "axios";
+import React from "react";
+
+function Todo({item, value}) {
+
+  function handleClick(event) {
+    event.preventDefault();
+    const id = event.target.value; 
+    axios.delete(`/api/${id}`)
+    window.location.reload();
+  }
+
   return (
-    <div class="card" >
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
+    <div className="card">
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">
           {item}
-          <button type="button" class="btn-close" aria-label="Close"></button>
+          <button
+            onClick={handleClick}
+            value={value}
+            type="button"
+            className="btn-close"
+            aria-label="Close"
+          ></button>
         </li>
       </ul>
     </div>

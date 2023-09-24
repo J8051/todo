@@ -20,6 +20,14 @@ app.get("/api", (req, res) => {
   });
 });
 
+app.delete("/api/:id",(req, res) => {
+  const id = req.params.id; 
+  return db.query("DELETE FROM todos WHERE id = $1;",[id])
+    .then((results) => {
+    return res.json(results.rows);
+  });
+});
+
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });

@@ -16,7 +16,7 @@ function App() {
     <>
       <h1>My Todo List</h1>
       {todos.map((todo) => (
-        <Todo key={todo.id} item={todo.name} />
+        <Todo key={todo.id} item={todo.name} value={todo.id} />
       ))}
     </>
   );
