@@ -1,0 +1,10 @@
+body{
+  margin: 6px;;
+}
+.card{
+  width: 18rem
+}
+
+.btn-close{
+float: right;
+}

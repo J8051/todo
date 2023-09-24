@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  return db.query("SELECT * FROM todos;").then((results) => {
+  return db.query("SELECT * FROM todos;")
+    .then((results) => {
     return res.json(results.rows);
   });
 });
