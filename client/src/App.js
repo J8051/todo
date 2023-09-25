@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import Todo from "./Components/Todo";
+import Add from "./Components/Add";
 
 function App() {
   const [todos, settodos] = useState([]);
@@ -18,6 +19,7 @@ function App() {
       {todos.map((todo) => (
         <Todo key={todo.id} item={todo.name} value={todo.id} />
       ))}
+      <Add/>
     </>
   );
 }
