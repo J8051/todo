@@ -28,6 +28,16 @@ app.delete("/api/:id",(req, res) => {
   });
 });
 
+
+
+app.post("/api/add", (req, res) => {
+  const text = req.body.text;
+  return db.query("INSERT INTO todos (name) VALUES ($1);",[text])
+    .then((results) => {
+    return res.json(results.rows);
+    });
+});
+
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });

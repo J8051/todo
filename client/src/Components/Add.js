@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useState } from 'react';
 
 function Add() {
@@ -6,7 +7,8 @@ function Add() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(text);
+    axios.post("/api/add", { text: text })
+    window.location.reload();
   }
 
   return (
