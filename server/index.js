@@ -29,13 +29,16 @@ app.delete("/api/:id",(req, res) => {
 });
 
 
-
 app.post("/api/add", (req, res) => {
   const text = req.body.text;
   return db.query("INSERT INTO todos (name) VALUES ($1);",[text])
     .then((results) => {
     return res.json(results.rows);
     });
+});
+
+app.put("/api/edit", (req, res) => {
+
 });
 
 app.listen(8080, () => {

@@ -6,6 +6,10 @@ body{
   width: 18rem
 }
 
+.edit{
+  float: right;
+}
+
 .btn-close{
 float: right;
 }
