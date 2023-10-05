@@ -38,7 +38,14 @@ app.post("/api/add", (req, res) => {
 });
 
 app.put("/api/edit", (req, res) => {
-
+  const text = req.body.text;
+  console.log(text)
+  const id = req.body.id;
+ 
+  return db.query("UPDATE todos SET name = $1 WHERE id=$2 ;",[text,id])
+    .then((results) => {
+    return res.json(results.rows);
+    });
 });
 
 app.listen(8080, () => {
