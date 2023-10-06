@@ -1,9 +1,8 @@
 import "../todo.css";
 import axios from "axios";
 import { React, useState } from "react";
-import Edit from "./Edit";
 
-function TodoItem({item,value}) {
+function TodoItem({ item, value }) {
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState("");
 
@@ -14,8 +13,8 @@ function TodoItem({item,value}) {
   const handleSave = (event) => {
     event.preventDefault();
     const id = value;
-    const text = event.target.innerHTML;
     axios.put(`/api/edit`, { text: text, id: id });
+    window.location.reload();
     setEditing(false);
   };
 
@@ -28,41 +27,44 @@ function TodoItem({item,value}) {
 
   return (
     <>
-       <div className="card">
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">
-          {editing ? <Edit /> : item}
+      <div className="card">
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            {editing ? (
+              <form>
+                <label>
+                  <input
+                    placeholder="Edit todo"
+                    type="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                  />
+                </label>
+              </form>
+            ) : (
+              item
+            )}
             {editing ? (
               <>
-                        <form>
-                        <label>
-                          <input
-                            placeholder="Edit todo"
-                            type="text"
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
-                          />
-                    </label>
-                </form>
-                <button onClick={handleEditing}>Save</button>
-                </>
-          ) : (
-            <>
-              <button className="edit" onClick={handleEditing}>
-                Edit
-              </button>
-              <button
-                onClick={handleClick}
-                value={value}
-                type="button"
-                className="btn-close"
-                aria-label="Close"
-              ></button>
-            </>
-          )}
-        </li>
-      </ul>
-    </div>
+                <button onClick={handleSave}>Save</button>
+              </>
+            ) : (
+              <>
+                <button className="edit" onClick={handleEditing}>
+                  Edit
+                </button>
+                <button
+                  onClick={handleClick}
+                  value={value}
+                  type="button"
+                  className="btn-close"
+                  aria-label="Close"
+                ></button>
+              </>
+            )}
+          </li>
+        </ul>
+      </div>
     </>
   );
 }
