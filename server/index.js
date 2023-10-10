@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  return db.query("SELECT * FROM todos;")
+  return db.query("SELECT * FROM todos ORDER BY id ASC;")
     .then((results) => {
     return res.json(results.rows);
   });
@@ -40,7 +40,7 @@ app.post("/api/add", (req, res) => {
 app.put("/api/edit", (req, res) => {
   const text = req.body.text;
   const id = req.body.id;
-  return db.query("UPDATE todos SET name = $1 WHERE id=$2 ;",[text,id])
+  return db.query(`UPDATE todos SET name = $1 WHERE id=$2;`,[text,id])
     .then((results) => {
     return res.json(results.rows);
     });
