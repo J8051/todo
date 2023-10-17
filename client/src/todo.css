@@ -2,8 +2,12 @@ body{
   margin: 6px;;
 }
 
+text{
+font-size: large;
+}
+
 .card{
-  width: 18rem
+  width: 24rem
 }
 
 .edit{

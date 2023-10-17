@@ -19,9 +19,12 @@ function Add() {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
+
         />
       </label>
-      <input type="submit" />
+      <input type="submit"
+      class="btn btn-primary" 
+      />
     </form>
   );
 }

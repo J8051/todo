@@ -27,8 +27,9 @@ function TodoItem({ item, value }) {
             ) : (
               <>
                 {item}
-                <button className="edit" onClick={handleEditing}>
-                  Edit
+                  <button className="edit btn btn-outline-secondary"
+                    onClick={handleEditing}>
+                    Edit
                 </button>
               </>
             )}
@@ -37,7 +38,7 @@ function TodoItem({ item, value }) {
               onClick={handleClick}
               value={value}
               type="button"
-              className="close"
+              className="close btn btn-outline-danger"
               aria-label="Close"
             > Delete
             </button>
