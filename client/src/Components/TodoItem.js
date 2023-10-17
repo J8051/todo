@@ -37,9 +37,10 @@ function TodoItem({ item, value }) {
               onClick={handleClick}
               value={value}
               type="button"
-              className="btn-close"
+              className="close"
               aria-label="Close"
-            ></button>
+            > Delete
+            </button>
           </li>
         </ul>
       </div>
