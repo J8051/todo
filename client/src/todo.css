@@ -1,13 +1,30 @@
 body{
   margin: 6px;;
+
+}
+
+#root{
+  display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 text{
-font-size: large;
+ font-size: large;
+}
+
+h1{
+  margin: 18px;
+}
+
+.btn-primary{
+ margin-left: 3px;
+ margin-top: 3px;
 }
 
 .card{
-  width: 24rem
+  width: 36rem
 }
 
 .edit{
